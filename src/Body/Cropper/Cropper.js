@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
 import { Image, Transformation, CloudinaryContext } from 'cloudinary-react';
 import Slider from '../Slider/Slider';
+import { StateContext } from '../../state';
 
 const useStyles = makeStyles({
     maxHeight: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles({
 });
 
 export default () => {
+    const [{ cloudName, publicId, cropHandlePreviewOffset }, dispatch] = useContext(StateContext)
+
     const classes = useStyles();
     return (
         <Grid
@@ -33,10 +36,12 @@ export default () => {
             className={(classes.fullHeight, classes.imageWrapper)}
         >
             <CloudinaryContext
-                cloudName="demo"
+                cloudName={cloudName}
                 className={classes.imageWrapper}
             >
-                <Image publicId="dog" className={classes.maxWidth} />
+                <Image publicId={publicId} className={classes.maxWidth}>
+                    <Transformation startOffset={cropHandlePreviewOffset}></Transformation>
+                    </Image>
             </CloudinaryContext>
             <Slider />
         </Grid>
