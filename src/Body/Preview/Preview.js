@@ -14,9 +14,7 @@ export default ({ startOffset, endOffset }) => {
     const classes = useStyles();
     return (
         <CloudinaryContext cloudName="demo">
-            <div>
-                <Video publicId="dog" controls className={classes.fullWidth} />
-            </div>
+            <Video publicId="dog" controls className={classes.fullWidth} />
         </CloudinaryContext>
     );
 };

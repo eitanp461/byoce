@@ -1,0 +1,12 @@
+.input-range__label-container {
+    display: none;
+}
+
+.input-range__slider {
+    position: relative;
+}
+
+.input-range {
+    width: 85%;
+    margin: 0 auto;
+}
