@@ -23,7 +23,9 @@ function App() {
     const { send } = initComm({
         initHandler: data => {
             console.log('XXXXXXXXXXXXXXXX init', data);
-            dispatch({ type: 'setAssets', payload: data.assets });
+            dispatch({ type: 'setAssets', payload: {
+                assets: data.assets
+                , cloudName: data.cloudName }});
         },
         messageHandler: data => {
             console.log('XXXXXXXXXXXXXXXX message', data);
