@@ -1,47 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/lab/Slider';
+import ReactInputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css';
+import './Slider.css';
 
-const styles = {
-  root: {
-    width: 300,
-  },
-  slider: {
-    padding: '22px 0px',
-  },
+const classes = {
+    root: {
+        width: 300,
+    },
+    slider: {
+        padding: '22px 0px',
+    },
+    displayNone: {
+        display: 'none',
+    },
 };
 
-class SimpleSlider extends React.Component {
-  state = {
-    value: 50,
-  };
+const classNames = {
+    // disabledInputRange: cx(styles.disabledInputRange, 'input-range input-range--disabled'),
+    // track: cx(styles.track, 'input-range__track input-range__track--background'),
+    // activeTrack: cx(styles.activeTrack, 'input-range__track input-range__track--active'),
+    // slider: cx(styles.slider, 'input-range__slider'),
+    // valueLabel: cx(
+    //     classes.displayNone,
+    //     'input-range__label input-range__label--value'
+    // ),
+    // labelContainer: cx(styles.labelContainer, 'input-range__label-container'),
+    // maxLabel: cx(styles.maxLabel, 'input-range__label input-range__label--max', { dn: !props.showMinMaxLabels }),
+    // minLabel: cx('input-range__label input-range__label--min', {
+    //     dn: !props.showMinMaxLabels,
+    // }),
+    // inputRange: 'input-range',
+    // sliderContainer: 'input-range__slider-container',
+};
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
+const minValue = 0;
+const maxValue = 100;
 
-  render() {
-    const { classes } = this.props;
-    const { value } = this.state;
+function RangeSlider(props) {
+    const [range, setRange] = useState({ min: minValue, max: maxValue });
 
     return (
-      <div className={classes.root}>
-        <Typography id="label">Slider label</Typography>
-        <Slider
-          className={classes.slider}
-          value={value}
-          aria-labelledby="label"
-          onChange={this.handleChange}
-        />
-      </div>
+        <div>
+            <Typography id="label">Trim Video</Typography>
+            <ReactInputRange
+                maxValue={maxValue}
+                minValue={minValue}
+                value={{ min: range.min, max: range.max }}
+                // classNames={classNames}
+                // formatLabel={() => ''}
+                onChange={value => {
+                    const min = Math.max(value.min, minValue);
+                    const max = Math.min(value.max, maxValue);
+                    setRange({ min, max });
+                }}
+            />
+        </div>
     );
-  }
 }
 
-SimpleSlider.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(SimpleSlider);
+export default RangeSlider;
