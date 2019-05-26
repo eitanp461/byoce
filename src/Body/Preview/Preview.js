@@ -16,7 +16,7 @@ export default ({ startOffset, endOffset }) => {
 
     const classes = useStyles();
     return (
-        <CloudinaryContext cloudName={cloudName}>
+        <CloudinaryContext cloudName={cloudName} secure>
             <Video publicId={publicId} controls className={classes.fullWidth} />
         </CloudinaryContext>
     );

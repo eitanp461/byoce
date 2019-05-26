@@ -25,7 +25,10 @@ const useStyles = makeStyles({
 });
 
 export default () => {
-    const [{ cloudName, publicId, cropHandlePreviewOffset }, dispatch] = useContext(StateContext)
+    const [
+        { cloudName, publicId, cropHandlePreviewOffset },
+        dispatch,
+    ] = useContext(StateContext);
 
     const classes = useStyles();
     return (
@@ -38,10 +41,11 @@ export default () => {
             <CloudinaryContext
                 cloudName={cloudName}
                 className={classes.imageWrapper}
+                secure
             >
-                <Image publicId={publicId} className={classes.maxWidth}>
-                    <Transformation startOffset={cropHandlePreviewOffset}></Transformation>
-                    </Image>
+                <Image publicId={publicId} resourceType="video" format="jpg" className={classes.maxWidth}>
+                    <Transformation startOffset={`${cropHandlePreviewOffset}p`}  />
+                </Image>
             </CloudinaryContext>
             <Slider />
         </Grid>

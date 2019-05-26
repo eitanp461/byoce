@@ -60,7 +60,7 @@ const getActiveImageUrl = (min, max) => {
 const onChange = debounce((min, max) => {
     const img = activeHandle.firstChild;
     img.src = getActiveImageUrl(min, max);
-}, 150);
+}, 50);
 
 const eventHandler = e => {
     activeHandle = e.target;
@@ -115,9 +115,10 @@ function RangeSlider(props) {
                     const min = Math.max(value.min, minValue);
                     const max = Math.min(value.max, maxValue);
                     // Update previewed image
+                    console.log('onChangeComplete', getActiveOffset(min, max))
                     dispatch({
                         type: 'changeCropPreviewOffset',
-                        offset: getActiveOffset(),
+                        offset: getActiveOffset(min, max),
                     });
                 }}
             />
