@@ -85,8 +85,7 @@ function RangeSlider(props) {
       });
 
     return (
-        <div>
-            <Typography id="label">Trim Video</Typography>
+        <div style={{padding: '25px 0', marginTop: '4px'}}>
             <ReactInputRange
                 maxValue={maxValue}
                 minValue={minValue}
