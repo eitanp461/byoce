@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 export const communicationContext = createContext({ send: null });
 
-const initializeCommunication = messageHandler => {
+const initializeCommunication = ({ initHandler, messageHandler }) => {
     let target;
 
     const handleMessages = event => {
@@ -10,6 +10,7 @@ const initializeCommunication = messageHandler => {
         const data = event.data;
         if (data.type === '__hello') {
             console.log('XXXXXXX recieved target from host: ', data.domain);
+            initHandler(data);
             target = data.domain;
         } else {
             console.log('XXXXXXX delegating to messageHandler');

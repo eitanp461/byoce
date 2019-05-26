@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/styles';
 import initComm, { communicationContext } from './communication';
+import { StateContext } from './state';
 import Header from './Header/Header.js';
 import Body from './Body/Body.js';
 import './App.css';
@@ -17,11 +18,18 @@ const useStyles = makeStyles({
 });
 
 function App() {
+    const [state, dispatch] = useContext(StateContext);
     const classes = useStyles();
-    const { send } = initComm(data => {
-        console.log('XXXXXXXXXXXXXXXX', data);
+    const { send } = initComm({
+        initHandler: data => {
+            console.log('XXXXXXXXXXXXXXXX init', data);
+            dispatch({ type: 'setAssets', payload: data.assets });
+        },
+        messageHandler: data => {
+            console.log('XXXXXXXXXXXXXXXX message', data);
+        },
     });
-
+    console.log('XXXXXXXXXXXXXX rerendering ', state);
     return (
         <Box height="100%">
             <communicationContext.Provider value={{ send }}>
@@ -36,7 +44,7 @@ function App() {
                     </Grid>
 
                     <Grid item className={classes.flexGrow}>
-                        <Body />
+                        <Body cloudName={state.cloudName} />
                     </Grid>
                 </Grid>
             </communicationContext.Provider>

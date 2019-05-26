@@ -20,53 +20,30 @@ const useStyles = makeStyles({
 });
 
 export default props => {
-    const initialState = {
-        cloudName: 'demo',
-        publicId: 'dog',
-        cropHandlePreviewOffset: 0,
-        startOffset: 0,
-        endOffset: 100,
-    };
-
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case 'changeCropPreviewOffset':
-                return {
-                    ...state,
-                    cropHandlePreviewOffset: action.offset,
-                };
-
-            default:
-                return state;
-        }
-    };
-
     const classes = useStyles();
     return (
-        <StateProvider initialState={initialState} reducer={reducer}>
-            <CloudinaryContext
-                cloudName={initialState.cloudName}
-                className={classes.imageWrapper}
-                secure
+        <CloudinaryContext
+            cloudName={props.cloudName}
+            className={classes.imageWrapper}
+            secure
+        >
+            <Grid
+                container
+                wrap="nowrap"
+                direction="column"
+                className={classes.fullHeight}
             >
                 <Grid
                     container
-                    wrap="nowrap"
-                    direction="column"
+                    alignItems="center"
                     className={classes.fullHeight}
                 >
-                    <Grid
-                        container
-                        alignItems="center"
-                        className={classes.fullHeight}
-                    >
-                        <Box flex={1} border={1}>
-                            <Cropper />
-                        </Box>
-                    </Grid>
-                    <SingleLineGridList />
+                    <Box flex={1} border={1}>
+                        <Cropper />
+                    </Box>
                 </Grid>
-            </CloudinaryContext>
-        </StateProvider>
+                <SingleLineGridList />
+            </Grid>
+        </CloudinaryContext>
     );
 };
