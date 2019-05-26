@@ -47,6 +47,7 @@ const createImgUrl = pct =>
     `https://res.cloudinary.com/demo/video/upload/w_50,so_${pct}p/dog.jpg`;
 
 const getActiveOffset = (min, max) => {
+    if (!activeHandle) return;
     const img = activeHandle.firstChild;
     const isMin = img.id === 'slider-thumb-0';
     return isMin ? min : max;
@@ -58,6 +59,7 @@ const getActiveImageUrl = (min, max) => {
 };
 
 const onChange = debounce((min, max) => {
+    if (!activeHandle) return;
     const img = activeHandle.firstChild;
     img.src = getActiveImageUrl(min, max);
 }, 50);
