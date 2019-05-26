@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
-import { Image, Transformation, CloudinaryContext } from 'cloudinary-react';
+import { Video, Transformation, CloudinaryContext } from 'cloudinary-react';
 import Slider from '../Slider/Slider';
 import { StateContext } from '../../state';
 
@@ -26,7 +26,13 @@ const useStyles = makeStyles({
 
 export default () => {
     const [
-        { cloudName, publicId, cropHandlePreviewOffset },
+        {
+            cloudName,
+            publicId,
+            cropHandlePreviewOffset,
+            startOffset,
+            endOffset,
+        },
         dispatch,
     ] = useContext(StateContext);
 
@@ -38,15 +44,19 @@ export default () => {
             direction="column"
             className={(classes.fullHeight, classes.imageWrapper)}
         >
-            <CloudinaryContext
-                cloudName={cloudName}
-                className={classes.imageWrapper}
-                secure
+            <Video
+                publicId={publicId}
+                className={classes.maxWidth}
+                controls
+                poster={{
+                    startOffset: `${cropHandlePreviewOffset}p`,
+                }}
             >
-                <Image publicId={publicId} resourceType="video" format="jpg" className={classes.maxWidth}>
-                    <Transformation startOffset={`${cropHandlePreviewOffset}p`}  />
-                </Image>
-            </CloudinaryContext>
+                <Transformation
+                    startOffset={startOffset}
+                    endOffset={endOffset}
+                />
+            </Video>
             <Slider />
         </Grid>
     );
