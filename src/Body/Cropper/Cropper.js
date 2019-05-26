@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import cx from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
-import { Video, Transformation, CloudinaryContext } from 'cloudinary-react';
+import { Image, Video, Transformation } from 'cloudinary-react';
 import Slider from '../Slider/Slider';
 import { StateContext } from '../../state';
+
+const VIDEO_ID = 'cropper-video';
 
 const useStyles = makeStyles({
     maxHeight: {
@@ -22,7 +25,13 @@ const useStyles = makeStyles({
     imageWrapper: {
         padding: '10px',
     },
+    displayNone: {
+        display: 'none',
+    },
 });
+
+let width = null;
+let height = null;
 
 export default () => {
     const [
@@ -36,6 +45,19 @@ export default () => {
         dispatch,
     ] = useContext(StateContext);
 
+    useEffect(() => {
+        return function componentWillUnmount() {
+            const video = document.getElementById(VIDEO_ID);
+            if (video && video.videoWidth) {
+                console.log({ width, height });
+                width = video.clientWidth;
+                height = video.clientHeight;
+            }
+        };
+    });
+
+    const [isLoading, setIsLoading] = useState(false);
+
     const classes = useStyles();
     return (
         <Grid
@@ -44,19 +66,42 @@ export default () => {
             direction="column"
             className={(classes.fullHeight, classes.imageWrapper)}
         >
+            <div
+                className={cx({
+                    [classes.displayNone]: !isLoading,
+                })}
+                style={{ width, height }}
+            >
+                <Image
+                    publicId="pixel"
+                    cloudName="eitanpeer"
+                    width={width}
+                    height={height}
+                />
+            </div>
             <Video
+                // Update the key to force React to reload the new video
+                key={`${startOffset}-${endOffset}`}
+                id={VIDEO_ID}
                 publicId={publicId}
-                className={classes.maxWidth}
+                className={cx(classes.maxWidth, {
+                    [classes.displayNone]: isLoading,
+                })}
+                startOffset={startOffset}
+                endOffset={endOffset}
                 controls
                 poster={{
-                    startOffset: `${cropHandlePreviewOffset}p`,
+                    startOffset: `${cropHandlePreviewOffset}`,
                 }}
-            >
-                <Transformation
-                    startOffset={startOffset}
-                    endOffset={endOffset}
-                />
-            </Video>
+                onLoadStart={() => {
+                    console.log('onLoadStart');
+                    setIsLoading(true);
+                }}
+                onCanPlay={() => {
+                    console.log('onCanPlay');
+                    setIsLoading(false);
+                }}
+            />
             <Slider />
         </Grid>
     );
