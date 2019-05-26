@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
 import SingleLineGridList from './SingleLineGridList/SingleLineGridList.js';
 import Preview from './Preview/Preview';
+import Slider from './Slider/Slider';
 
 const useStyles = makeStyles({
     maxHeight: {
@@ -28,7 +29,7 @@ export default () => {
         >
             <Grid container alignItems="center" className={classes.fullHeight}>
                 <Box flex={1} border={1} alignSelf="stretch">
-                    Item 1
+                    <Slider />
                 </Box>
                 <Box flex={1} border={1} >
                     <Preview className={classes.maxHeight}/>
