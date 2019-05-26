@@ -1,3 +1,7 @@
 .input-range__label-container {
     display: none;
 }
+
+.input-range__slider {
+    position: relative;
+}
