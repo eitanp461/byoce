@@ -1,0 +1,13 @@
+.idea
+.vscode/
+.history
+.env
+
+node_modules/
+
+# Transient log files
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
