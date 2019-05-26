@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.00492b54.chunk.css",
-    "main.js": "/static/js/main.84344c93.chunk.js",
-    "main.js.map": "/static/js/main.84344c93.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.74f3f4bd.chunk.js": "/static/js/2.74f3f4bd.chunk.js",
-    "static/js/2.74f3f4bd.chunk.js.map": "/static/js/2.74f3f4bd.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.50df9f33cf774f71bb1e142be9dba176.js": "/precache-manifest.50df9f33cf774f71bb1e142be9dba176.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.00492b54.chunk.css.map": "/static/css/main.00492b54.chunk.css.map"
+    "main.css": "/byoce/static/css/main.228c1cf4.chunk.css",
+    "main.js": "/byoce/static/js/main.470544a8.chunk.js",
+    "main.js.map": "/byoce/static/js/main.470544a8.chunk.js.map",
+    "runtime~main.js": "/byoce/static/js/runtime~main.b38f02e8.js",
+    "runtime~main.js.map": "/byoce/static/js/runtime~main.b38f02e8.js.map",
+    "static/css/2.6d7d54d2.chunk.css": "/byoce/static/css/2.6d7d54d2.chunk.css",
+    "static/js/2.0a8edd17.chunk.js": "/byoce/static/js/2.0a8edd17.chunk.js",
+    "static/js/2.0a8edd17.chunk.js.map": "/byoce/static/js/2.0a8edd17.chunk.js.map",
+    "index.html": "/byoce/index.html",
+    "precache-manifest.e5e3eba4d59021f449a345a80264a42c.js": "/byoce/precache-manifest.e5e3eba4d59021f449a345a80264a42c.js",
+    "service-worker.js": "/byoce/service-worker.js",
+    "static/css/2.6d7d54d2.chunk.css.map": "/byoce/static/css/2.6d7d54d2.chunk.css.map",
+    "static/css/main.228c1cf4.chunk.css.map": "/byoce/static/css/main.228c1cf4.chunk.css.map"
   }
 }
