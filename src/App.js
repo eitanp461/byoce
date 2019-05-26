@@ -23,9 +23,13 @@ function App() {
     const { send } = initComm({
         initHandler: data => {
             console.log('XXXXXXXXXXXXXXXX init', data);
-            dispatch({ type: 'setAssets', payload: {
-                assets: data.assets
-                , cloudName: data.cloudName }});
+            dispatch({
+                type: 'setAssets', payload: {
+                    assets: data.assets,
+                    cloudName: data.cloudName,
+                    apiKey: data.apiKey,
+                },
+            });
         },
         messageHandler: data => {
             console.log('XXXXXXXXXXXXXXXX message', data);
@@ -42,11 +46,11 @@ function App() {
                     className={(classes.flexGrow, classes.fullHeight)}
                 >
                     <Grid item>
-                        <Header />
+                        <Header/>
                     </Grid>
 
                     <Grid item className={classes.flexGrow}>
-                        <Body cloudName={state.cloudName} />
+                        <Body cloudName={state.cloudName}/>
                     </Grid>
                 </Grid>
             </communicationContext.Provider>

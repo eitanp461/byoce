@@ -7,6 +7,7 @@ import { StateProvider } from './state';
 
 const initialState = {
     cloudName: 'demo',
+    apiKey: '',
     publicId: 'dog',
     cropHandlePreviewOffset: 0,
     assets: [],
@@ -30,6 +31,7 @@ const reducer = (state, action) => {
                 ...state,
                 assets: action.payload.assets,
                 cloudName: action.payload.cloudName,
+                apiKey: action.payload.apiKey,
                 currentId: action.payload.assets.length ? action.payload.assets[0].public_id : null,
             };
 
