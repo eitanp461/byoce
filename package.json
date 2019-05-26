@@ -43,5 +43,6 @@
     },
     "devDependencies": {
         "prettier": "1.17.1"
-    }
+    },
+    "homepage": "https://eitanp461.github.io/byoce"
 }

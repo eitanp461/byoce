@@ -115,10 +115,12 @@ function RangeSlider(props) {
                     const min = Math.max(value.min, minValue);
                     const max = Math.min(value.max, maxValue);
                     // Update previewed image
-                    console.log('onChangeComplete', getActiveOffset(min, max))
+                    console.log('onChangeComplete', getActiveOffset(min, max));
                     dispatch({
                         type: 'changeCropPreviewOffset',
                         offset: getActiveOffset(min, max),
+                        startOffset: min,
+                        endOffset: max,
                     });
                 }}
             />

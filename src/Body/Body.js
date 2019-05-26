@@ -2,9 +2,9 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
+import { CloudinaryContext } from 'cloudinary-react';
 import { StateProvider } from '../state';
 import SingleLineGridList from './SingleLineGridList/SingleLineGridList.js';
-import Preview from './Preview/Preview';
 import Cropper from './Cropper/Cropper';
 
 const useStyles = makeStyles({
@@ -24,6 +24,8 @@ export default props => {
         cloudName: 'demo',
         publicId: 'dog',
         cropHandlePreviewOffset: 0,
+        startOffset: 0,
+        endOffset: 100,
     };
 
     const reducer = (state, action) => {
@@ -42,26 +44,29 @@ export default props => {
     const classes = useStyles();
     return (
         <StateProvider initialState={initialState} reducer={reducer}>
-            <Grid
-                container
-                wrap="nowrap"
-                direction="column"
-                className={classes.fullHeight}
+            <CloudinaryContext
+                cloudName={initialState.cloudName}
+                className={classes.imageWrapper}
+                secure
             >
                 <Grid
                     container
-                    alignItems="center"
+                    wrap="nowrap"
+                    direction="column"
                     className={classes.fullHeight}
                 >
-                    <Box flex={1} border={1}>
-                        <Cropper />
-                    </Box>
-                    <Box flex={1} border={1}>
-                        <Preview className={classes.maxHeight} />
-                    </Box>
+                    <Grid
+                        container
+                        alignItems="center"
+                        className={classes.fullHeight}
+                    >
+                        <Box flex={1} border={1}>
+                            <Cropper />
+                        </Box>
+                    </Grid>
+                    <SingleLineGridList />
                 </Grid>
-                <SingleLineGridList />
-            </Grid>
+            </CloudinaryContext>
         </StateProvider>
     );
 };
