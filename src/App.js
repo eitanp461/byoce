@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/styles';
+import Header from './Header/Header.js';
+import Body from './Body/Body.js';
 import './App.css';
 
+const useStyles = makeStyles({
+    fullHeight: {
+        height: '100%',
+    },
+    flexGrow: {
+        flex: 1,
+    }
+});
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const classes = useStyles();
+    return (
+        <Box height="100%">
+            <Grid
+                wrap="nowrap"
+                direction="column"
+                container
+                className={classes.flexGrow, classes.fullHeight}
+            >
+                <Grid item>
+                    <Header />
+                </Grid>
+
+                <Grid
+                    item
+                    className={classes.flexGrow}
+                    >
+                    <Body />
+                </Grid>
+            </Grid>
+        </Box>
+    );
 }
 
 export default App;
