@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c5fd8f32d8aae6c7f55da886c7a68e9a",
+    "revision": "fc38550955a009297d450c59d0ff3e38",
     "url": "/byoce/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/byoce/static/css/2.6d7d54d2.chunk.css"
   },
   {
-    "revision": "1a3c397b7ee06dc61b02",
+    "revision": "85e6fbe09be49495619d",
     "url": "/byoce/static/css/main.228c1cf4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/byoce/static/js/2.efb65042.chunk.js"
   },
   {
-    "revision": "1a3c397b7ee06dc61b02",
-    "url": "/byoce/static/js/main.0650cf31.chunk.js"
+    "revision": "85e6fbe09be49495619d",
+    "url": "/byoce/static/js/main.d228c0a8.chunk.js"
   },
   {
     "revision": "2d184d0074d4957773af",
