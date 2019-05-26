@@ -5,7 +5,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import tileData from './tileData.js';
+import tileData from './tileData';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -37,21 +37,19 @@ function SingleLineGridList() {
             <GridList className={classes.gridList} cols={2.5} spacing={3}>
                 {tileData.map(tile => (
                     <GridListTile key={tile.img}>
-                            <img src={tile.img} alt={tile.title} />
-                            <GridListTileBar
-                                title={tile.title}
-                                classes={{
-                                    root: classes.titleBar,
-                                    title: classes.title,
-                                }}
-                                actionIcon={
-                                    <IconButton>
-                                        <StarBorderIcon
-                                            className={classes.title}
-                                        />
-                                    </IconButton>
-                                }
-                            />
+                        <img src={tile.img} alt={tile.title} />
+                        <GridListTileBar
+                            title={tile.title}
+                            classes={{
+                                root: classes.titleBar,
+                                title: classes.title,
+                            }}
+                            actionIcon={
+                                <IconButton>
+                                    <StarBorderIcon className={classes.title} />
+                                </IconButton>
+                            }
+                        />
                     </GridListTile>
                 ))}
             </GridList>
