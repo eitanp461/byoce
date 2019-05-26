@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/byoce/static/css/main.228c1cf4.chunk.css",
-    "main.js": "/byoce/static/js/main.243d85da.chunk.js",
-    "main.js.map": "/byoce/static/js/main.243d85da.chunk.js.map",
+    "main.js": "/byoce/static/js/main.0650cf31.chunk.js",
+    "main.js.map": "/byoce/static/js/main.0650cf31.chunk.js.map",
     "runtime~main.js": "/byoce/static/js/runtime~main.b38f02e8.js",
     "runtime~main.js.map": "/byoce/static/js/runtime~main.b38f02e8.js.map",
     "static/css/2.6d7d54d2.chunk.css": "/byoce/static/css/2.6d7d54d2.chunk.css",
-    "static/js/2.0a8edd17.chunk.js": "/byoce/static/js/2.0a8edd17.chunk.js",
-    "static/js/2.0a8edd17.chunk.js.map": "/byoce/static/js/2.0a8edd17.chunk.js.map",
+    "static/js/2.efb65042.chunk.js": "/byoce/static/js/2.efb65042.chunk.js",
+    "static/js/2.efb65042.chunk.js.map": "/byoce/static/js/2.efb65042.chunk.js.map",
     "index.html": "/byoce/index.html",
-    "precache-manifest.76ff385c2ea54dec14a391b880f62fbe.js": "/byoce/precache-manifest.76ff385c2ea54dec14a391b880f62fbe.js",
+    "precache-manifest.a9fb4aa920a804778521cafda4ff116f.js": "/byoce/precache-manifest.a9fb4aa920a804778521cafda4ff116f.js",
     "service-worker.js": "/byoce/service-worker.js",
     "static/css/2.6d7d54d2.chunk.css.map": "/byoce/static/css/2.6d7d54d2.chunk.css.map",
     "static/css/main.228c1cf4.chunk.css.map": "/byoce/static/css/main.228c1cf4.chunk.css.map"
